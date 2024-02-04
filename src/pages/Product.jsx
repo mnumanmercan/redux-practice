@@ -30,13 +30,12 @@ const Product = () => {
     }
   };
 
-  console.log(data, 'data selector')
-
   const buttonFunc = () => {
+    dispatch(createDataFunc({ ...productInfo, id: data.length + 1 }));
     dispatch(modalFunc());
-    dispatch(createDataFunc(productInfo));
-    
   };
+
+  console.log(data, "data selector");
 
   const contentModal = (
     <>
@@ -67,7 +66,12 @@ const Product = () => {
 
   return (
     <div>
-      <ProductCard />
+      <div className="flex items-center flex-wrap">
+        {data.map((data, idx) => (
+          <ProductCard key={idx} data={data} />
+        ))}
+      </div>
+
       {modal && <Modal content={contentModal} title={"Ürün oluştur"} />}
     </div>
   );
