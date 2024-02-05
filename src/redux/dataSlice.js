@@ -21,14 +21,14 @@ export const dataSlice = createSlice({
         ),
       ];
     },
-    sortingDataFunc: (state) => {
-      state.data = state.data.sort((a,b) => a.price - b.price)
+    sortingDataFunc: (state, action) => {
+      state.data = [...state.data.sort((a,b) => action.payload === 'asc' ? a.price - b.price : action.payload === 'desc' ? b.price - a.price : null)]
     }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { createDataFunc, deleteDataFunc, updateDataFunc } =
+export const { createDataFunc, deleteDataFunc, updateDataFunc, sortingDataFunc } =
   dataSlice.actions;
 
 export default dataSlice.reducer;
