@@ -27,6 +27,11 @@ export const dataSlice = createSlice({
     descendDataFunc: (state) => {
       state.data = state.data.sort((a, b) => b.price - a.price);
     },
+    searchDataFunc: (state, action) => {
+      state.data = [...state.data.filter((data) =>
+        data.name.includes(action.payload)
+      )]
+    },
   },
 });
 
@@ -36,7 +41,8 @@ export const {
   deleteDataFunc,
   updateDataFunc,
   ascendDataFunc,
-  descendDataFunc
+  descendDataFunc,
+  searchDataFunc
 } = dataSlice.actions;
 
 export default dataSlice.reducer;
