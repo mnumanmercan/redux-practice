@@ -2,7 +2,7 @@ import React from "react";
 import { MdPostAdd } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { modalFunc } from "../redux/modalSlice";
-import { sortingDataFunc } from "../redux/dataSlice";
+import { searchDataFunc, sortingDataFunc } from "../redux/dataSlice";
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -22,7 +22,8 @@ const Header = () => {
           </select>
         </div>
         <input
-          className="h-10 rounded-lg px-4"
+          onChange={(e) => dispatch(searchDataFunc(e.target.value))}
+          className="h-10 rounded-lg px-4 text-black"
           type="text"
           placeholder="Arama yapınız"
         />
