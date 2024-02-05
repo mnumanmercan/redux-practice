@@ -21,14 +21,22 @@ export const dataSlice = createSlice({
         ),
       ];
     },
-    sortingDataFunc: (state) => {
-      state.data = state.data.sort((a,b) => a.price - b.price)
-    }
+    ascendDataFunc: (state) => {
+      state.data = state.data.sort((a, b) => a.price - b.price);
+    },
+    descendDataFunc: (state) => {
+      state.data = state.data.sort((a, b) => b.price - a.price);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { createDataFunc, deleteDataFunc, updateDataFunc } =
-  dataSlice.actions;
+export const {
+  createDataFunc,
+  deleteDataFunc,
+  updateDataFunc,
+  ascendDataFunc,
+  descendDataFunc
+} = dataSlice.actions;
 
 export default dataSlice.reducer;
