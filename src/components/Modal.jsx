@@ -3,7 +3,7 @@ import { GrClose } from "react-icons/gr";
 import { useDispatch } from "react-redux";
 import { modalFunc } from "../redux/modalSlice";
 
-const Modal = ({ title, content, btnText, btnFunc }) => {
+const Modal = ({ title, content }) => {
  
   const dispatch = useDispatch();
 
